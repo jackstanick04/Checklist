@@ -7,3 +7,6 @@ The following is the ordered steps (obviously checking that eveyrthing works as 
     - first create item class and its attributes and instance methods to update and act iteself
     - then make the checklist class after the item classs works
     - the difficult part will be the main program and having everything work (will probably need many methods and switches)
+What has been done so far
+    - date class basics have been made and tested
+    - task class basics have been made and tested
