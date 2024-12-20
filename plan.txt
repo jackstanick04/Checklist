@@ -3,6 +3,7 @@ The following are the general ideas of each file
     - the tasks will all be their own item, with attributes like completed/description
     - the user can create checklists, which will be arraylists of tasks and have their own method like add/complete task, etc.
 The following is the ordered steps (obviously checking that eveyrthing works as we go on)
+    - also make a date object which can be used when making a task
     - first create item class and its attributes and instance methods to update and act iteself
     - then make the checklist class after the item classs works
     - the difficult part will be the main program and having everything work (will probably need many methods and switches)
