@@ -1,15 +1,8 @@
 public class MainFile { 
 
-    public static int dog (int jack, String happy) {
-        return jack + 2;
-    }
-
     public static void main (String [] args) { 
 
-        int num = 5;
-        System.out.print("Jack is gay");
-
-        System.out.println(dog(14, "Yes"));
+        // This is going to be the main file for my checklist program. it has been a pain in the ass to set this all up
 
     }
 
