@@ -13,3 +13,21 @@ What has been done so far
     - task, date, and checklist complete with methods and variables
 
 now need to work on the main method interface and userness
+    - always print the current list
+    - switch on many options (will use the scanner to take the data in)
+        - make list
+        - add/remove an item
+        - clean list
+        - complete an item
+        - see if done with everything
+    - always print list afterward
+
+What has been done and needs to be done
+    - all class files done very functionally
+    - working on the main output and methods for each call to action 
+        - methods in the main file as the individual instance methods have already been written
+
+
+extras (not to do right now)
+Can use date package to see if an item is out of date
+Can make multiple lists

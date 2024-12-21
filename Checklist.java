@@ -30,6 +30,12 @@ public class Checklist {
         tasks.remove(number - 1);
     }
 
+    // complete task method
+    public void completeTask (int number) {
+        // change completion status of index which is one prior to the number
+        tasks.get(number - 1).changeStatus(true);
+    }
+
     // toString method
     public String toString () {
         String result = "";
@@ -48,6 +54,17 @@ public class Checklist {
                 tasks.remove(index);
             }
         }
+    }
+
+    // method to check if all tasks are done
+    public boolean allDone () {
+        // loop through all the elements and if any are not done return false
+        for (Task task : tasks) {
+            if (!task.getDone()) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
