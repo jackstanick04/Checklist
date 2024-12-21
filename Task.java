@@ -31,7 +31,7 @@ public class Task {
         return String.format("%-15s %-13s %-3s", label, date.toString(), "[O]");
     }
 
-    // changes completion status
+    // changes completion status (true is done)
     public void changeStatus (boolean newStatus) {
         isDone = newStatus;
     }
