@@ -10,3 +10,6 @@ The following is the ordered steps (obviously checking that eveyrthing works as 
 What has been done so far
     - date class basics have been made and tested
     - task class basics have been made and tested
+    - task, date, and checklist complete with methods and variables
+
+now need to work on the main method interface and userness
