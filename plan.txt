@@ -27,7 +27,11 @@ What has been done and needs to be done
     - working on the main output and methods for each call to action 
         - methods in the main file as the individual instance methods have already been written
 
+- declare the list outside of loop, if they choose one, instanciate the list
+- this list will then be easily updated in the cases of the switch (do not even need other methods)
+
 
 extras (not to do right now)
 Can use date package to see if an item is out of date
 Can make multiple lists
+checklist instanciation and item adds all at once

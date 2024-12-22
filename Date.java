@@ -6,10 +6,16 @@ public class Date {
     private int year;
 
     // date constructor (no default is needed)
-    public Date (int month, int day, int year) {
-        this.month = month;
-        this.day = day;
-        this.year = year;
+    public Date (String date) {
+        // split and parse the elements to ints to then be stored
+        String [] strArr = date.split("/");
+        int [] intArr = new int [3];
+        for (int index = 0; index < 3; index ++) {
+            intArr [index] = Integer.parseInt(strArr [index]);
+        }
+        month = intArr [0];
+        day = intArr [1];
+        year = intArr [2];
     }
 
     // toString method for printing

@@ -11,6 +11,8 @@ public class Checklist {
         tasks = new ArrayList <Task> ();
         isComplete = false;
     }
+    
+    // will not be actually used until later
     public Checklist (ArrayList <Task> tasks) {
         this.tasks = tasks;
         isComplete = false;
@@ -21,10 +23,7 @@ public class Checklist {
         tasks.add(task);
     }
 
-    // remove method (overloaded to be able to have an index)
-    public void removeTask () {
-        tasks.remove(tasks.size() - 1);
-    }
+    // remove task
     public void removeTask (int number) {
         // need to subtract one as the index will be 1 less than where it appears on the list
         tasks.remove(number - 1);
