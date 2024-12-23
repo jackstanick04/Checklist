@@ -1,9 +1,21 @@
+// for the current date
+import java.time.LocalDate;
+
 public class Date {
     
     // instance variables for the date
     private int month;
     private int day;
     private int year;
+
+    // default date will be the current date
+    public Date () {
+        // current date object
+        LocalDate today = LocalDate.now();
+        month = today.getMonthValue();
+        day = today.getDayOfMonth();
+        year = today.getYear();
+    }
 
     // date constructor (no default is needed)
     public Date (String date) {
@@ -41,25 +53,30 @@ public class Date {
         this.year = year;
     }
 
-    // compareTo method which will see if the given date is before or equal to the new, entered date (parameter)
-    public boolean compareTo (Date date2) {
+    // compareTo method which will see if the given date is before or equal to the current date
+    public boolean compareTo () {
+
+        // instanciate current date object as date2, the if statements use the needed getters
+        LocalDate date2 = LocalDate.now();
+
         // goes year, month, day to work efficiently
         if (year < date2.getYear()) {
-            return true;
-        }
-        else if (year == date2.getYear()) {
-            if (month < date2.getMonth()) {
-                return true;
-            }
-            else if (month == date2.getMonth()) {
-                if (day <= date2.getDay()) {
-                    return true;
-                }
-                return false;
-            }
             return false;
         }
-        return false;
+        else if (year == date2.getYear()) {
+            if (month < date2.getMonthValue()) {
+                return false;
+            }
+            else if (month == date2.getMonthValue()) {
+                if (day < date2.getDayOfMonth()) {
+                    return false;
+                }
+                return true;
+            }
+            return true;
+        }
+        return true;
+
     }
 
 }

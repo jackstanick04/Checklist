@@ -2,5 +2,5 @@ So the program works without error with the current basic options,
 Consider a way to clean up the main method and have more options
 
 - checklist with items already known instanciation
-- check for dates out of date using date package
+- check for dates out of date using date package (done)
 - make multiple lists
