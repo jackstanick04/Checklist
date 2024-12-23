@@ -9,3 +9,7 @@ Consider a way to clean up the main method and have more options
 the way to do a lot of this:
 - make an arraylist of checklists outside the main method (move scanner outside as well)
     - this will allow for static methods for the different cases and will not need parameters
+
+Should be pretty close to done
+At this point the two things to do are formatting(!!!!)
+And then also test everything out and try and find some bugs (ignore input bugs)

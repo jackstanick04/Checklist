@@ -5,17 +5,20 @@ public class Checklist {
     // instance variables
     private ArrayList <Task> tasks;
     private boolean isComplete;
+    private String name;
 
     // constructor methods (one that takes in a list and the other with an empty checklist)
-    public Checklist () {
+    public Checklist (String name) {
         tasks = new ArrayList <Task> ();
         isComplete = false;
+        this.name = name;
     }
     
     // will not be actually used until later
-    public Checklist (ArrayList <Task> tasks) {
+    public Checklist (String name, ArrayList <Task> tasks) {
         this.tasks = tasks;
         isComplete = false;
+        this.name = name;
     }
     
     // add method
@@ -37,7 +40,8 @@ public class Checklist {
 
     // toString method
     public String toString () {
-        String result = "";
+        // start with the name
+        String result = name + "\n";
         // loop through and concatenate each task's toString on its own line
         for (Task task : tasks) {
             result += task.toString() + "\n";
