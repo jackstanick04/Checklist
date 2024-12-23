@@ -43,7 +43,13 @@ public class MainFile {
                     String description = reader.nextLine();
                     System.out.println("Please enter your date in MM/DD/YYYY: ");
                     String date = reader.nextLine();
-                    thisList.addTask(new Task (description, new Date(date)));
+                    // check for if date is today
+                    if (date.equals("")) {
+                        thisList.addTask(new Task (description, new Date()));
+                    }
+                    else {
+                        thisList.addTask(new Task (description, new Date(date)));
+                    }
                     break;
                 case 2: 
                     // to remove item, take in the number of the item to remove
