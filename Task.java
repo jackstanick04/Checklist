@@ -8,7 +8,7 @@ public class Task {
     // constructor will always have a label for the task, optional to have a date object
     public Task (String label) { 
         this.label = label;
-        date = new Date (-1, -1, -1);
+        date = new Date();
         isDone = false;
     }
     public Task (String label, Date date) {
@@ -24,11 +24,19 @@ public class Task {
 
     // toString for the tasks, depends on if it is complete or not for the O or X, use tabs for table-look
     public String toString () { 
-        if (isDone) { 
+        if (isDone && date.compareTo()) { 
             // using string.format to have it in a table-like approach (the first argument is custom escape sequences)
-            return String.format("%-15s %-13s %-3s", label, date.toString(), "[X]");
+            return String.format("%-15s %-13s %-6s", label, date.toString(), "[X]");
         }
-        return String.format("%-15s %-13s %-3s", label, date.toString(), "[O]");
+        else if (isDone && !date.compareTo()){
+            return String.format("%-15s %-13s %-6s %-30s", label, date.toString(), "[X]", "Overtime and Overdue");
+        }
+        else if (!isDone && date.compareTo()) {
+            return String.format("%-15s %-13s %-6s", label, date.toString(), "[O]");
+        }
+        else {
+            return String.format("%-15s %-13s %-6s %-30s", label, date.toString(), "[O]", "Overtime and Overdue");
+        }
     }
 
     // changes completion status (true is done)
