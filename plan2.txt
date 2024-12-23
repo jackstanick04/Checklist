@@ -5,3 +5,7 @@ Consider a way to clean up the main method and have more options
 - check for dates out of date using date package (done)
 - make multiple lists 
 - make static methods for the different cases?
+
+the way to do a lot of this:
+- make an arraylist of checklists outside the main method (move scanner outside as well)
+    - this will allow for static methods for the different cases and will not need parameters
