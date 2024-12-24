@@ -24,6 +24,8 @@ public class MainFile {
             System.out.println("Please enter your selection: ");
             choice = reader.nextInt();
             reader.nextLine();
+            // formatting
+            System.out.println();
 
             // now run a switch on choice, calling the respective static methods
             switch (choice) {   
@@ -71,9 +73,9 @@ public class MainFile {
 
             while (!keepGoing.equals("done")) {
 
-                System.out.println("Please enter your description: ");
+                System.out.println("Please enter your description for your task: ");
                 String description = reader.nextLine();
-                System.out.println("Please enter your date in MM/DD/YYYY (enter to do today): ");
+                System.out.println("Please enter your date in MM/DD/YYYY (press enter to automatically do today): ");
                 String date = reader.nextLine();
 
                 // check for if date is today
@@ -84,13 +86,14 @@ public class MainFile {
                     itemList.add(new Task (description, new Date(date)));
                 }
 
-                System.out.println("Type \"done\" to be done adding items.");
+                System.out.println("Type \"done\" to finish adding items (otherwise just press enter).");
                 keepGoing = reader.nextLine();
 
             }
-
             lists.add(new Checklist (name, itemList));
         }
+        // formatting
+        System.out.println();
     }
 
     public static void viewList () {
@@ -99,6 +102,8 @@ public class MainFile {
         System.out.println("What list would you like to view (enter -1 for all)?");
         int choice = reader.nextInt();
         reader.nextLine();
+        // formatting
+        System.out.println();
 
         if (choice == -1) {
             // loop through and print all 
@@ -131,6 +136,8 @@ public class MainFile {
             System.out.println("5) Check list completion.");
             int numChoice = reader.nextInt();
             reader.nextLine();
+            // formatting
+            System.out.println();
 
             switch (numChoice) {
 
@@ -141,12 +148,14 @@ public class MainFile {
                     // to remove item, take in the number of the item to remove
                     System.out.println("Please enter the number of the item that you want to remove: ");
                     int numRem = reader.nextInt();
+                    reader.nextLine();
                     lists.get(numList - 1).removeTask(numRem);
                     break;
                 case 3: 
                     // to complete an item, once again takes a number
                     System.out.println("Please enter the number of the item that you want to complete: ");
                     int numComp = reader.nextInt();
+                    reader.nextLine();
                     lists.get(numList - 1).completeTask(numComp);
                     break;
                 case 4: 
@@ -169,6 +178,8 @@ public class MainFile {
             // check if done editing
             System.out.println("Please type \" done \" if you are done editing.");
             choice = reader.nextLine();
+            // formatting
+            System.out.println();
 
         }
 
