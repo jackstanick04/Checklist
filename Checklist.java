@@ -4,20 +4,17 @@ public class Checklist {
     
     // instance variables
     private ArrayList <Task> tasks;
-    private boolean isComplete;
     private String name;
 
     // constructor methods (one that takes in a list and the other with an empty checklist)
     public Checklist (String name) {
         tasks = new ArrayList <Task> ();
-        isComplete = false;
         this.name = name;
     }
     
     // will not be actually used until later
     public Checklist (String name, ArrayList <Task> tasks) {
         this.tasks = tasks;
-        isComplete = false;
         this.name = name;
     }
     
