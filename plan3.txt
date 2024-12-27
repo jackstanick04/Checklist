@@ -1,0 +1,7 @@
+now into the java swing
+    - 4 pages that will be put in a cardlayout so that one is showed at a time
+        - page for the title screen (will output the lists and also the buttons)
+        - edit screen (will have options of what list and stuff to edit)
+        - create list screen (will take user input)
+        - delete list screen (most simple and just takes number)
+    - will have to somehow both format and then connect the programming
