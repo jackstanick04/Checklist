@@ -9,16 +9,17 @@ public class MainFile {
 
     public static void main (String [] args) { 
 
-        // using an int switch for the different choices (4 will be when they are done)
+        // using an int switch for the different choices (5 will be when they are done)
         int choice = 0;
-        while (choice != 4) {
+        while (choice != 5) {
 
             // select general function
             System.out.println("Please choose the integer that corresponds to what you want to do: ");
             System.out.println("1) Create new list.");
             System.out.println("2) View my lists.");
             System.out.println("3) Edit a list.");
-            System.out.println("4) I am done with this program.");
+            System.out.println("4) Delete a list.");
+            System.out.println("5) I am done with this program.");
 
             // will use scanner to take in the input and a dummy read
             System.out.println("Please enter your selection: ");
@@ -38,7 +39,10 @@ public class MainFile {
                 case 3: 
                     editList();
                     break;
-                case 4:  
+                case 4:
+                    deleteList();
+                    break;
+                case 5:  
                     break;
                 default : System.out.println("Please enter valid input.");
             }
@@ -185,7 +189,7 @@ public class MainFile {
 
     }
 
-    // add Item method just to keep switch clean 
+    // add item method just to keep switch clean 
     public static void addItem (Checklist list1) {
 
         System.out.println("Please enter your description: ");
@@ -200,6 +204,16 @@ public class MainFile {
         else {
             list1.addTask(new Task (description, new Date(date)));
         }
+
+    }
+
+    // delete list method
+    public static void deleteList () {
+
+        // take in which list to remove (index will be one less and remove from lists)
+        System.out.println("Which list would you like to remove?");
+        int remove = reader.nextInt();
+        lists.remove(remove - 1);
 
     }
 
