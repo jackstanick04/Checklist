@@ -8,6 +8,9 @@ public class Edit extends JPanel{
     // constructor to make page
     public Edit(CardLayout cardLayout, JPanel cardPanel) {
 
+        // make border layout
+        setLayout(new BorderLayout());
+
         // make back button and path it back
         JButton back = new JButton("Back");
         back.addActionListener(e -> cardLayout.show(cardPanel, "home"));
@@ -15,7 +18,7 @@ public class Edit extends JPanel{
         // make panel to show button
         JPanel button = new JPanel();
         button.add(back);
-        add(button);
+        add(button, BorderLayout.SOUTH);
 
 
     }
