@@ -5,3 +5,14 @@ now into the java swing
         - create list screen (will take user input)
         - delete list screen (most simple and just takes number)
     - will have to somehow both format and then connect the programming
+
+got buttons to pass between pages
+will now need to work on    
+    - formatting the lists on the main page
+    - taking input on the other pages and actually updating the data
+
+Done
+    - logic and formatting for the home and delete page
+Next steps 
+    - logic and formatting for the add and edit pages
+    - make things look pretty
