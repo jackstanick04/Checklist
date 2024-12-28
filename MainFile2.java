@@ -45,7 +45,6 @@ public class MainFile2 {
         cardPanel.add(edit, "edit");
         cardPanel.add(delete, "delete");
         checklistFrame.add(cardPanel);
-        
 
         // make visible
         checklistFrame.setVisible(true);

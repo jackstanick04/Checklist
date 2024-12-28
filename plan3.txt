@@ -20,3 +20,5 @@ Appearance (create and edit)
     - dont display, just have a couple form things (like the delete question)
     - for the create, go back to the home page, for the edit, maybe ask if they are done and if not refresh?
         - could do this same idea of asking and refreshing for adding items during list intialization
+
+Did the formatting for the create page, need to actually implement all of the logic next
