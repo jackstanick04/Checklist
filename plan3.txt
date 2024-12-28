@@ -16,3 +16,7 @@ Done
 Next steps 
     - logic and formatting for the add and edit pages
     - make things look pretty
+Appearance (create and edit)
+    - dont display, just have a couple form things (like the delete question)
+    - for the create, go back to the home page, for the edit, maybe ask if they are done and if not refresh?
+        - could do this same idea of asking and refreshing for adding items during list intialization
