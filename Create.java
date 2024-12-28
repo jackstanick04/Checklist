@@ -2,14 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Create extends JPanel{
+    
+    private Checklist checklist = new Checklist ();
 
     // constructor to make page
-    public Create (CardLayout cardLayout, JPanel cardPanel) {
-
-        // flag variable to ensure the name is only used once
-        // private boolean flag = false;
+    public Create (CardLayout cardLayout, JPanel cardPanel, ArrayList <Checklist> checklists, CheckHome home) {
 
         // make border layout
         setLayout(new BorderLayout());
@@ -70,6 +70,63 @@ public class Create extends JPanel{
         // make panel aligned to the bottom
         add(bottom, BorderLayout.SOUTH);
 
+        // action listeners for the two buttons (where most of the logic goes)
+
+        // add another button
+        addMore.addActionListener(e -> {
+            // check if the name field has been filled in or not
+            if (inputName.isEnabled()) {
+                checklist.setName(inputName.getText());
+                // set false for future tries
+                inputName.setEnabled(false);
+            }
+
+            // checks if empty box to just give todays date
+            Date dateUse = new Date ();
+            if (!inputDate.getText().equals("")) {
+                dateUse = new Date(inputDate.getText());
+            }
+            // task text storage and then adding the new task with date
+            String taskStr = inputTask.getText();
+            checklist.addTask(new Task(taskStr, dateUse));
+
+            // clean the task and date boxes and update the button to be able to be pressed again
+            inputTask.setText("");
+            inputDate.setText("");
+            addMore.setEnabled(true);
+
+        });
+
+        // done button
+        done.addActionListener(e -> {
+
+            // first need same logic as the addmore to store the data (exact same code)
+            if (inputName.isEnabled()) {
+                checklist.setName(inputName.getText());
+                inputName.setEnabled(false);
+            }
+            Date dateUse = new Date ();
+            if (!inputDate.getText().equals("")) {
+                dateUse = new Date(inputDate.getText());
+            }
+            String taskStr = inputTask.getText();
+            checklist.addTask(new Task(taskStr, dateUse));
+
+            // add the new checklist to the arraylist and reset the checklist
+            checklists.add(checklist);
+            checklist = new Checklist();
+
+            // clear the input fields and enable button (basically refreshes the page too)
+            inputName.setText("");
+            inputTask.setText("");
+            inputDate.setText("");
+            done.setEnabled(true);
+
+            // go back and refresh home page (take in as parameter just for this)
+            home.refresh();
+            cardLayout.show(cardPanel, "home");
+
+        });
 
 
     }

@@ -11,10 +11,17 @@ public class Checklist {
         tasks = new ArrayList <Task> ();
         this.name = name;
     }
-    
-    // will not be actually used until later
     public Checklist (String name, ArrayList <Task> tasks) {
         this.tasks = tasks;
+        this.name = name;
+    }
+    public Checklist () {
+        name = "";
+        tasks = new ArrayList <Task> ();
+    }
+
+    // setter for name
+    public void setName (String name) {
         this.name = name;
     }
     

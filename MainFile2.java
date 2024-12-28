@@ -34,7 +34,7 @@ public class MainFile2 {
 
         // making one of every page
         CheckHome home = new CheckHome(cardLayout, cardPanel, checklists);
-        Create create = new Create(cardLayout, cardPanel);
+        Create create = new Create(cardLayout, cardPanel, checklists, home);
         Edit edit = new Edit(cardLayout, cardPanel);
         // takes in the home so that it can refresh the page easily
         Delete delete = new Delete(cardLayout, cardPanel, checklists, home);
