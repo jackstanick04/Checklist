@@ -117,17 +117,16 @@ public class Create extends JPanel{
             checklist = new Checklist();
 
             // clear the input fields and enable button (basically refreshes the page too)
+            inputName.setEnabled(true);
             inputName.setText("");
             inputTask.setText("");
             inputDate.setText("");
             done.setEnabled(true);
-
-            // go back and refresh home page (take in as parameter just for this)
+            // go back and refresh home page (take in as parameter just for this) and this page
             home.refresh();
             cardLayout.show(cardPanel, "home");
 
         });
-
 
     }
 

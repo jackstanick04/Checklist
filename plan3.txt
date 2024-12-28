@@ -22,3 +22,7 @@ Appearance (create and edit)
         - could do this same idea of asking and refreshing for adding items during list intialization
 
 Did the formatting for the create page, need to actually implement all of the logic next
+
+Edit page   
+    - have the original edit page with working buttons and done button (refreshes)
+    - every other edit page needs to be made
