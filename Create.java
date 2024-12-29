@@ -3,6 +3,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.border.*;
+import javax.swing.BorderFactory;
 
 public class Create extends JPanel{
     
@@ -11,16 +13,22 @@ public class Create extends JPanel{
     // constructor to make page
     public Create (CardLayout cardLayout, JPanel cardPanel, ArrayList <Checklist> checklists, CheckHome home) {
 
+        // make preferred font for everything
+        Font font = new Font("Arial", Font.PLAIN, 18);
+
         // make border layout
         setLayout(new BorderLayout());
 
         // same as the delete page, making nav bar with the title and the back button at the north
         // make the button and title
-        JLabel label = new JLabel("Create list page");
+        JLabel label = new JLabel("Create Page");
         JButton back = new JButton("Back");
+        label.setFont(font);
+        back.setFont(font);
         back.addActionListener(e -> cardLayout.show(cardPanel, "home"));
-        // make panel and add button and title
+        // make panel and add button and title with border
         JPanel top = new JPanel();
+        top.setBorder(new EmptyBorder(20, 0, 20, 0));
         top.add(label);
         top.add(back);
         add(top, BorderLayout.NORTH);
@@ -35,13 +43,15 @@ public class Create extends JPanel{
         JPanel name = new JPanel(new FlowLayout());
         JLabel promptName = new JLabel("What name for the list");
         JTextField inputName = new JTextField(20);
+        promptName.setFont(font);
         name.add(promptName);
         name.add(inputName);
 
         // asking for task name (flow panel)
         JPanel task = new JPanel(new FlowLayout());
-        JLabel promptTask = new JLabel("Label for first task");
+        JLabel promptTask = new JLabel("Label for task.");
         JTextField inputTask = new JTextField(20);
+        promptTask.setFont(font);
         task.add(promptTask);
         task.add(inputTask);
 
@@ -49,6 +59,7 @@ public class Create extends JPanel{
         JPanel date = new JPanel(new FlowLayout());
         JLabel promptDate = new JLabel("Date for task");
         JTextField inputDate = new JTextField(10);
+        promptDate.setFont(font);
         date.add(promptDate);
         date.add(inputDate);
 
@@ -65,8 +76,12 @@ public class Create extends JPanel{
         JButton done = new JButton("Done");
         JButton addMore = new JButton("Add Another");
         JPanel bottom = new JPanel();
+        done.setFont(font);
+        addMore.setFont(font);
         bottom.add(done);
         bottom.add(addMore);
+        // for border
+        bottom.setBorder(new EmptyBorder(20, 0, 20, 0));
         // make panel aligned to the bottom
         add(bottom, BorderLayout.SOUTH);
 

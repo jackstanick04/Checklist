@@ -1,10 +1,15 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class Edit extends JPanel{
+public class Edit extends JPanel {
+
+    // make preferred font for everything
+    Font font = new Font("Arial", Font.PLAIN, 18);
 
     // need all instance variables so can be used in the instance methods
     // list selection
@@ -31,9 +36,12 @@ public class Edit extends JPanel{
         JPanel top = new JPanel();
         JButton back = new JButton("Back");
         back.addActionListener(e -> cardLayout.show(cardPanel, "home"));
-        JLabel title = new JLabel("This is the edit page page");
+        JLabel title = new JLabel("Edit Page");
+        back.setFont(font);
+        title.setFont(font);
         top.add(back);
         top.add(title);
+        top.setBorder(new EmptyBorder(20, 0, 20, 0));
         add(top, BorderLayout.NORTH);
 
         // middle section where the user selects the list to work with and then user choice of edit
@@ -47,15 +55,22 @@ public class Edit extends JPanel{
         // add label and textfield for the number panel
         JLabel numQuestion = new JLabel("Which list would you like to edit");
         JTextField numResp = new JTextField(5);
+        numQuestion.setFont(font);
+        numResp.setFont(font);
         number.add(numQuestion);
         number.add(numResp);
 
-        // create and add buttons
+        // create and add buttons and set font
         JButton addButton = new JButton("Add item");
         JButton removeButton = new JButton("Remove item");
         JButton completeButton = new JButton("Complete item");
         JButton cleanListButton = new JButton("Clean list");
         JButton checkListButton = new JButton("Check List");
+        addButton.setFont(font);
+        removeButton.setFont(font);
+        completeButton.setFont(font);
+        cleanListButton.setFont(font);
+        checkListButton.setFont(font);
         buttons.add(addButton);
         buttons.add(removeButton);
         buttons.add(completeButton);
@@ -69,7 +84,9 @@ public class Edit extends JPanel{
 
         // done button at the bottom (will act as refresh)
         JPanel bottom = new JPanel();
-        JButton done = new JButton("done");
+        bottom.setBorder(new EmptyBorder(20, 0, 20, 0));
+        JButton done = new JButton("Done");
+        done.setFont(font);
         bottom.add(done);
         add(bottom, BorderLayout.SOUTH);
 
@@ -131,16 +148,19 @@ public class Edit extends JPanel{
         JLabel promptTask = new JLabel("Enter task");
         JTextField inputDate = new JTextField(15);
         JTextField inputTask = new JTextField(15);
+        promptDate.setFont(font);
+        promptTask.setFont(font);
         // add to each panel and then central panel
         date.add(promptDate);
         date.add(inputDate);
         task.add(promptTask);
         task.add(inputTask);
-        centerP.add(date);
         centerP.add(task);
+        centerP.add(date);
 
         // make enter button (where the logic will go)
         JButton enter = new JButton("Enter");
+        enter.setFont(font);
         enter.addActionListener(e -> {
             // store the task and date (same logic as adding an item when creating list)
             Date newDate = new Date();
@@ -174,14 +194,16 @@ public class Edit extends JPanel{
 
         // use a label and a text box to ask what number to remove (similar idea to what we have been doing)
         JPanel delPanel = new JPanel(new FlowLayout());
-        JLabel promptDel = new JLabel("Which to delete");
+        JLabel promptDel = new JLabel("Which list to delete");
         JTextField inputDel = new JTextField(5);
+        promptDel.setFont(font);
         delPanel.add(promptDel);
         delPanel.add(inputDel);
         centerP.add(delPanel);
 
         // enter button where logic will go
         JButton enter = new JButton("Enter");
+        enter.setFont(font);
         enter.addActionListener(e -> {
             // take in the selection to remove
             int choice = Integer.parseInt(inputDel.getText());
@@ -210,13 +232,15 @@ public class Edit extends JPanel{
         // same exact method as remove, just completes the task instead of removing it
 
         JPanel compPanel = new JPanel(new FlowLayout());
-        JLabel compDel = new JLabel("Which to complete");
+        JLabel compDel = new JLabel("Which list to complete");
         JTextField inputComp = new JTextField(5);
+        compDel.setFont(font);
         compPanel.add(compDel);
         compPanel.add(inputComp);
         centerP.add(compPanel);
 
         JButton enter = new JButton("Enter");
+        enter.setFont(font);
         enter.addActionListener(e -> {
             int choice = Integer.parseInt(inputComp.getText());
             // complete method does -1
@@ -246,11 +270,12 @@ public class Edit extends JPanel{
         // update jlabel depending on the result of the logic method
         boolean check = checklists.get(numList - 1).allDone();
         if (check) { 
-            result = new JLabel("All done");
+            result = new JLabel("List list is all done, consider deleting.");
         }
         else {
-            result = new JLabel("Nope");
+            result = new JLabel("List still has items, consider cleaning.");
         }
+        result.setFont(font);
         // add to the central panel
         centerP.add(result);
 

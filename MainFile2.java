@@ -8,18 +8,8 @@ public class MainFile2 {
     
     public static void main (String [] args) {
 
-        // checklists
+        // checklist instanciation
         ArrayList <Checklist> checklists = new ArrayList <Checklist> ();
-        Task task1 = new Task ("Jack");
-        Task task2 = new Task ("Kate");
-        ArrayList <Task> tasks = new ArrayList <Task> ();
-        tasks.add(task1);
-        tasks.add(task2);
-        Checklist checky1 = new Checklist ("List1", tasks);
-        Checklist checky2 = new Checklist ("List2", tasks);
-        checklists.add(checky1);
-        checklists.add(checky2);
-
 
         // make frame and size
         JFrame checklistFrame = new JFrame("Checklist Program");
