@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,17 +16,23 @@ public class Delete extends JPanel{
 
         this.checklists = checklists;
 
+        // make preferred font for everything
+        Font font = new Font("Arial", Font.PLAIN, 18);
+
         // create border layout
         setLayout(new BorderLayout());
 
         // title portion and back button (panel)
 
-        // label and button instanciation
-        JLabel title = new JLabel("Delete page", SwingConstants.CENTER);
+        // label and button instanciation and setting font
+        JLabel title = new JLabel("Delete Page", SwingConstants.CENTER);
         JButton back = new JButton("Back");
+        title.setFont(font);
+        back.setFont(font);
         back.addActionListener(e -> cardLayout.show(cardPanel, "home"));
         // making panel to add them to and then add to the layout
         JPanel top = new JPanel();
+        top.setBorder(new EmptyBorder(20, 0, 20, 0));
         top.add(back);
         top.add(title);
         add(top, BorderLayout.NORTH);
@@ -41,11 +48,13 @@ public class Delete extends JPanel{
 
         // input portion (using a panel)
 
-        // create label for input and textfield to take in user data
-        JLabel which = new JLabel("Enter which to delete");
+        // create label for input and textfield to take in user data and font
+        JLabel which = new JLabel("Enter which list to delete");
         JTextField choice = new JTextField(5);
         // make button and then action below it
         JButton delete = new JButton("Delete");
+        which.setFont(font);
+        delete.setFont(font);
         // removing the item from the checklist (just need to make it the appropriate index) and then sending back to home page (also refreshes)
         delete.addActionListener(e -> {
             checklists.remove(Integer.parseInt(choice.getText()) - 1);
@@ -65,7 +74,7 @@ public class Delete extends JPanel{
         inputPanel.add(which);
         inputPanel.add(choice);
         inputPanel.add(delete);
-        add(inputPanel, BorderLayout.SOUTH);
+        add(inputPanel, BorderLayout.CENTER);
 
     }
 
