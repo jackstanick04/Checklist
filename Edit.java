@@ -67,28 +67,6 @@ public class Edit extends JPanel{
         centerP.add(buttons);
         add(centerP, BorderLayout.CENTER);
 
-        // call appropriate instance methods based on the buttons and instanciate the number list variable
-        addButton.addActionListener(e -> {
-            numList = Integer.parseInt(numResp.getText());
-            addMethod();
-        });
-        removeButton.addActionListener(e -> {
-            numList = Integer.parseInt(numResp.getText());
-            removeMethod();
-        });
-        completeButton.addActionListener(e -> {
-            numList = Integer.parseInt(numResp.getText());
-            completeMethod();
-        });
-        cleanListButton.addActionListener(e -> {
-            numList = Integer.parseInt(numResp.getText());
-            cleanListMethod();
-        });
-        checkListButton.addActionListener(e -> {
-            numList = Integer.parseInt(numResp.getText());
-            checkListMethod();
-        });
-
         // done button at the bottom (will act as refresh)
         JPanel bottom = new JPanel();
         JButton done = new JButton("done");
@@ -109,6 +87,31 @@ public class Edit extends JPanel{
             cardLayout.show(cardPanel, "home");
         });
 
+        // call appropriate instance methods based on the buttons and instanciate the number list variable
+        addButton.addActionListener(e -> {
+            numList = Integer.parseInt(numResp.getText());
+            addMethod();
+        });
+        removeButton.addActionListener(e -> {
+            numList = Integer.parseInt(numResp.getText());
+            removeMethod();
+        });
+        completeButton.addActionListener(e -> {
+            numList = Integer.parseInt(numResp.getText());
+            completeMethod();
+        });
+        cleanListButton.addActionListener(e -> {
+            numList = Integer.parseInt(numResp.getText());
+            // do not need method as it is just two lines
+            checklists.get(numList - 1).cleanList();
+            // automatically click done so that there is no need for a second page
+            done.doClick();
+        });
+        checkListButton.addActionListener(e -> {
+            numList = Integer.parseInt(numResp.getText());
+            checkListMethod();
+        });
+
     }
 
     // instance methods for every button (have access to the instance variables already)
@@ -119,6 +122,42 @@ public class Edit extends JPanel{
         centerP.removeAll();
 
         // make the new center panel (customized to each)
+
+        // panels (horizontal within) to be added to centralP vertically
+        JPanel date = new JPanel(new FlowLayout());
+        JPanel task = new JPanel(new FlowLayout());
+        // make label and text field to add to the panels
+        JLabel promptDate = new JLabel("Enter date");
+        JLabel promptTask = new JLabel("Enter task");
+        JTextField inputDate = new JTextField(15);
+        JTextField inputTask = new JTextField(15);
+        // add to each panel and then central panel
+        date.add(promptDate);
+        date.add(inputDate);
+        task.add(promptTask);
+        task.add(inputTask);
+        centerP.add(date);
+        centerP.add(task);
+
+        // make enter button (where the logic will go)
+        JButton enter = new JButton("Enter");
+        enter.addActionListener(e -> {
+            // store the task and date (same logic as adding an item when creating list)
+            Date newDate = new Date();
+            if (!inputDate.getText().equals("")) {
+                newDate = new Date(inputDate.getText());
+            }
+            String taskStr = inputTask.getText();
+            // insert to the checklists arraylist in appropriate spot, using the list index from earlier (1 less)
+            checklists.get(numList - 1).addTask(new Task(taskStr, newDate));
+            // clear each text field and reset button
+            inputDate.setText("");
+            inputTask.setText("");
+            enter.setEnabled(true);
+        });
+        
+        // add button to the panel
+        centerP.add(enter);
 
         // how to update the page
         centerP.repaint();
@@ -133,6 +172,29 @@ public class Edit extends JPanel{
 
         // make the new center panel (customized to each)
 
+        // use a label and a text box to ask what number to remove (similar idea to what we have been doing)
+        JPanel delPanel = new JPanel(new FlowLayout());
+        JLabel promptDel = new JLabel("Which to delete");
+        JTextField inputDel = new JTextField(5);
+        delPanel.add(promptDel);
+        delPanel.add(inputDel);
+        centerP.add(delPanel);
+
+        // enter button where logic will go
+        JButton enter = new JButton("Enter");
+        enter.addActionListener(e -> {
+            // take in the selection to remove
+            int choice = Integer.parseInt(inputDel.getText());
+            // use choice and the numlist to remove the desired task (not - 1 for second bc the method already does this)
+            checklists.get(numList - 1).removeTask(choice);
+            // reset the text box and enter button
+            inputDel.setText("");
+            enter.setEnabled(true);
+        });
+
+        // add button to panel
+        centerP.add(enter);
+
         // how to update the page
         centerP.repaint();
         centerP.revalidate();
@@ -145,19 +207,26 @@ public class Edit extends JPanel{
         centerP.removeAll();
 
         // make the new center panel (customized to each)
+        // same exact method as remove, just completes the task instead of removing it
 
-        // how to update the page
-        centerP.repaint();
-        centerP.revalidate();
+        JPanel compPanel = new JPanel(new FlowLayout());
+        JLabel compDel = new JLabel("Which to complete");
+        JTextField inputComp = new JTextField(5);
+        compPanel.add(compDel);
+        compPanel.add(inputComp);
+        centerP.add(compPanel);
 
-    }
+        JButton enter = new JButton("Enter");
+        enter.addActionListener(e -> {
+            int choice = Integer.parseInt(inputComp.getText());
+            // complete method does -1
+            checklists.get(numList - 1).completeTask(choice);
+            inputComp.setText("");
+            enter.setEnabled(true);
+        });
 
-    public void cleanListMethod () { 
-        
-        // remove the center panel to later be customized (same as add method)
-        centerP.removeAll();
-
-        // make the new center panel (customized to each)
+        // add button to panel
+        centerP.add(enter);
 
         // how to update the page
         centerP.repaint();
@@ -171,6 +240,19 @@ public class Edit extends JPanel{
         centerP.removeAll();
 
         // make the new center panel (customized to each)
+
+        // instanciate jlabel
+        JLabel result;
+        // update jlabel depending on the result of the logic method
+        boolean check = checklists.get(numList - 1).allDone();
+        if (check) { 
+            result = new JLabel("All done");
+        }
+        else {
+            result = new JLabel("Nope");
+        }
+        // add to the central panel
+        centerP.add(result);
 
         // how to update the page
         centerP.repaint();

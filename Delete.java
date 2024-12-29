@@ -29,14 +29,15 @@ public class Delete extends JPanel{
         top.add(back);
         top.add(title);
         add(top, BorderLayout.NORTH);
-
-        // print lists (see home page)
-        lists = new JPanel();
-        lists.setLayout(new BoxLayout(lists, BoxLayout.Y_AXIS));
-        for (Checklist checklist : checklists) {
-            lists.add(new JTextArea(checklist.toString()));
-        }
-        add(lists, BorderLayout.CENTER);
+        
+        // printing the lists left out for now
+        // // print lists (see home page)
+        // lists = new JPanel();
+        // lists.setLayout(new BoxLayout(lists, BoxLayout.Y_AXIS));
+        // for (Checklist checklist : checklists) {
+        //     lists.add(new JTextArea(checklist.toString()));
+        // }
+        // add(lists, BorderLayout.CENTER);
 
         // input portion (using a panel)
 
@@ -50,7 +51,7 @@ public class Delete extends JPanel{
             checklists.remove(Integer.parseInt(choice.getText()) - 1);
             // calls the refresh instance method and then all homepage's, then updates which card is shown
             home.refresh();
-            refresh();
+            // refresh(); (taken away because not printing the lists right now)
             // refresh the button to be able to be used again
             choice.setText("");
             // make sure the button can be used again
@@ -71,13 +72,14 @@ public class Delete extends JPanel{
     // same as the homepage refresh
     public void refresh() {
 
-        lists.removeAll();
-        for (Checklist checklist : checklists) { 
-            lists.add(new JTextArea(checklist.toString()));
-        }
+        // leaving out the list portion for now
+        // lists.removeAll();
+        // for (Checklist checklist : checklists) { 
+        //     lists.add(new JTextArea(checklist.toString()));
+        // }
 
-        lists.revalidate();
-        lists.repaint();
+        // lists.revalidate();
+        // lists.repaint();
 
     }
 
