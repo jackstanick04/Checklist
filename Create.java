@@ -1,10 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.border.*;
-import javax.swing.BorderFactory;
 
 public class Create extends JPanel{
     
@@ -21,7 +18,7 @@ public class Create extends JPanel{
 
         // same as the delete page, making nav bar with the title and the back button at the north
         // make the button and title
-        JLabel label = new JLabel("Create Page");
+        JLabel label = new JLabel("Create Page (press enter then done)");
         JButton back = new JButton("Back");
         label.setFont(font);
         back.setFont(font);
@@ -49,7 +46,7 @@ public class Create extends JPanel{
 
         // asking for task name (flow panel)
         JPanel task = new JPanel(new FlowLayout());
-        JLabel promptTask = new JLabel("Label for task.");
+        JLabel promptTask = new JLabel("Label for task");
         JTextField inputTask = new JTextField(20);
         promptTask.setFont(font);
         task.add(promptTask);
@@ -57,7 +54,7 @@ public class Create extends JPanel{
 
         // asking for date (flow panel)
         JPanel date = new JPanel(new FlowLayout());
-        JLabel promptDate = new JLabel("Date for task");
+        JLabel promptDate = new JLabel("Date for task (MM/DD/YYYY); Leave blank for today");
         JTextField inputDate = new JTextField(10);
         promptDate.setFont(font);
         date.add(promptDate);

@@ -26,3 +26,5 @@ Did the formatting for the create page, need to actually implement all of the lo
 Edit page   
     - have the original edit page with working buttons and done button (refreshes)
     - every other edit page needs to be made
+
+out of date, see readme
