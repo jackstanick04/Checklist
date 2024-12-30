@@ -195,7 +195,7 @@ public class Edit extends JPanel {
 
         // use a label and a text box to ask what number to remove (similar idea to what we have been doing)
         JPanel delPanel = new JPanel(new FlowLayout());
-        JLabel promptDel = new JLabel("Which list to delete");
+        JLabel promptDel = new JLabel("Which item to delete");
         JTextField inputDel = new JTextField(5);
         promptDel.setFont(font);
         delPanel.add(promptDel);
