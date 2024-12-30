@@ -15,3 +15,5 @@ At this point the two things to do are formatting(!!!!)
 And then also test everything out and try and find some bugs (ignore input bugs)
 
 Program works and looks as intended. it is time to take this to the next level with either date base or pretty output
+
+out of date, see read me

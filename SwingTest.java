@@ -3,6 +3,7 @@ import java.awt.*;
 import javax.swing.border.*;
 
 // this works (FINALLY!), and now we can begin to learn all this
+// not at all related to the program
 
 public class SwingTest {
     

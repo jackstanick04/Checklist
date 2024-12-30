@@ -35,3 +35,5 @@ extras (not to do right now)
 Can use date package to see if an item is out of date
 Can make multiple lists
 checklist instanciation and item adds all at once
+
+Out of date, see readme

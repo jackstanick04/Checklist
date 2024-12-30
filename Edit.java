@@ -1,9 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Edit extends JPanel {
@@ -36,7 +33,7 @@ public class Edit extends JPanel {
         JPanel top = new JPanel();
         JButton back = new JButton("Back");
         back.addActionListener(e -> cardLayout.show(cardPanel, "home"));
-        JLabel title = new JLabel("Edit Page");
+        JLabel title = new JLabel("Edit Page (press enter then done)");
         back.setFont(font);
         title.setFont(font);
         top.add(back);
@@ -121,6 +118,10 @@ public class Edit extends JPanel {
             numList = Integer.parseInt(numResp.getText());
             // do not need method as it is just two lines
             checklists.get(numList - 1).cleanList();
+            // if list is done remove it from checklists
+            if (checklists.get(numList - 1).allDone()) {
+                checklists.remove(numList - 1);
+            }
             // automatically click done so that there is no need for a second page
             done.doClick();
         });
@@ -144,7 +145,7 @@ public class Edit extends JPanel {
         JPanel date = new JPanel(new FlowLayout());
         JPanel task = new JPanel(new FlowLayout());
         // make label and text field to add to the panels
-        JLabel promptDate = new JLabel("Enter date");
+        JLabel promptDate = new JLabel("Enter date (MM/DD/YYYY); Leave blank for today");
         JLabel promptTask = new JLabel("Enter task");
         JTextField inputDate = new JTextField(15);
         JTextField inputTask = new JTextField(15);
